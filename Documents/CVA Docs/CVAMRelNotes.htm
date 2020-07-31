@@ -1,0 +1,1786 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta content="1.02.02.20090904" name="CPWR.Codex.Version">
+<!--
+    Access is limited to authorized users.  Use of this product is subject to the
+    terms and conditions of the user's License Agreement with Compuware Corporation.
+
+    © 2009 Compuware Corporation.  All rights reserved.  Unpublished - rights reserved
+    under the Copyright Laws of the United States.
+
+    U.S. GOVERNMENT RIGHTS-Use, duplication, or disclosure by the U.S. Government
+    is subject to restrictions as set forth in Compuware Corporation license
+    agreement and as provided in DFARS 227.7202-1(a) and 227.7202-3(a) (1995),
+    DFARS 252.227-7013(c)(1)(ii)(OCT 1988), FAR 12.212(a) (1995), FAR 52.227-19, or
+    FAR 52.227-14 (ALT III), as applicable.  Compuware Corporation.
+
+    This product contains confidential information and trade secrets of Compuware
+    Corporation.  Use, disclosure, or reproduction is prohibited without the prior
+    express written permission of Compuware Corporation.
+-->
+<style media="screen" type="text/css">
+            body {
+                font-style: normal;
+                font-size: 14px;
+                    margin: 2em 3em 1em 3em;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+            	font-size: 180%;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-bottom: 1em;
+            	text-align: center;
+            }
+            
+            h2 {
+            	font-size: 150%;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 2.5em;
+            	margin-bottom: 0.5em;
+            	text-align: left;
+            }
+            
+            h3 {
+            	font-size: 130%;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 2em;
+            	margin-bottom: 0.3em;
+            	text-align: left;
+            }
+            
+            h4 
+            {
+            	font-size: 120%;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 1.5em;
+            	margin-bottom: 0;
+            	text-align: left;
+            }
+            
+            h5 
+            {
+            	font-size: 110%;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 1em;
+            	margin-bottom: 0;
+            	text-align: left;
+            }
+            
+            pre {
+                background-color: #DCDCDC;
+                padding: 0.5em 1em 0.5em 1em;
+            }
+
+			table {
+				border-width: 0px;
+				border-collapse: collapse;
+				font-size: 12px;
+				margin-top: 1em;
+				margin-bottom: 1em;
+				padding: 4px;
+			}
+			
+			th {
+				background-color: Silver;
+				font-weight: bold;
+				padding: 0 5px 0 5px;
+			}
+			
+			td {
+				padding: 0 5px 0 5px;
+			}
+			
+			.cellrowborderfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+			}
+
+			.cellrowborder {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+			}
+			
+			.tablenoborder {
+				margin-top: 20px;
+			}
+			            
+			.cdxbg-peach {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #F9C69B;
+			}
+			
+			.cdxbg-lightpeach {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #FCE1C9;
+			}
+			
+			.cdxbg-aqua {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #B5D1CB;
+			}
+			
+			.cdxbg-lightaqua {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #D2E3E0;
+			}
+			
+			.cdxbg-tan {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #DBD6B3;
+			}
+			
+			.cdxbg-lighttan {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #EEEED1;
+			}
+			
+			.cdxbg-peachfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #F9C69B;
+			}
+			
+			.cdxbg-lightpeachfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #FCE1C9;
+			}
+			
+			.cdxbg-aquafirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #B5D1CB;
+			}
+			
+			.cdxbg-lightaquafirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #D2E3E0;
+			}
+			
+			.cdxbg-tanfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #DBD6B3;
+			}
+			
+			.cdxbg-lighttanfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #EEEED1;
+			}
+			
+            p {
+            	margin-top: 1em;
+            	margin-bottom: 1em;
+            }
+            
+            td p, th p, li p {
+            	margin-top: 0pt;
+            	margin-bottom: 0.5em;
+            }
+            
+            ol, ul {
+            	margin-top: 0pt;
+            	margin-bottom: 1em;
+            }
+            
+            li ol, li ul {
+            	margin-top: 0;
+            	margin-bottom: 0;
+            }
+            
+            .notetitle, .tiptitle, .importanttitle {
+            	font-weight: bold;
+            }
+            
+            .note, .tip, .important {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 1em;
+            	margin-bottom: 1em;
+            	padding: 0.5em 0.75em 0.5em 0.75em;
+            }
+            
+            .cautiontitle, .warningtitle {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 1em;
+            	margin-bottom: 0;
+            	padding: 0.5em 0.75em 0.5em 0.75em;
+            	font-weight: bold;
+            }
+            
+            .caution, .warning {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 0;
+            	margin-bottom: 1em;
+            	padding: 0.5em 0.75em 0.5em 0.75em;
+            }
+            
+			.figcap, .caption, caption {
+				text-align: left;
+				font-style: normal;   
+				font-size: 90%;
+            	margin-top: 1em;
+				margin-bottom: 0.5em;
+			}
+			
+			a:link {
+				color: #000099;
+				text-decoration: none;
+			}
+			
+			a:visited{
+				color: #800080;
+				text-decoration: none;
+			}
+			
+			a:active{
+				color: #000099;
+				text-decoration: none;
+			}
+			
+			a:hover{
+				color: #000099;
+				text-decoration: underline;
+			}
+			
+            .guilabel, .guicontrol {
+            	font-weight: bold;
+            }
+            
+			.guikey {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+			
+			.key {
+			  font-family: monospace;
+			  font-style: normal;
+			  font-weight: normal;
+			  text-transform: uppercase;
+			}
+			
+			.api-name, .cmd-name, .code, .file-path, 
+			.opt-name, .parm-name, .prop-name, 
+			.system-output, .msg-num, .msg-ph, .value {
+				font-family: monospace;
+			}
+			
+			.user-input {
+			  font-family: monospace; 
+			  font-weight: bold;
+			}
+			
+			.cite, .uservar {
+				font-style: italic;
+			}
+			
+			.win-name {
+			  font-weight: bold;
+			}
+			
+			.brokenlink {
+				font-style: italic;
+				color: #FF0000;
+			}
+
+            .pubdate 
+            {
+            	text-align: center;
+            }
+            
+            .gotop {
+            	font-size: 80%;
+            	margin-top: 1em;
+            }
+            
+            dt, .dlterm {
+            	font-weight: bold;
+            }
+            
+            .footer {
+            }
+            
+            .footer hr {
+            	width: 20em;
+            	text-align: left;
+            }
+            
+            .maptoclist {
+            	list-style-type: none;
+            }
+                    
+            .codexwarn {
+            	color: #FF0000;
+            }
+            
+        </style><style media="print" type="text/css">
+            body {
+                font-family: "Times New Roman", Times, serif;
+                font-style: normal;
+                font-size: 10pt;
+            }
+
+            h1 {
+            	font-family: Arial, Helvetica, sans-serif;
+            	font-size: 24pt;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-bottom: 12pt;
+            	text-align: center;
+            }
+            
+            h2 {
+            	font-family: Arial, Helvetica, sans-serif;
+            	font-size: 18pt;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 24pt;
+            	margin-bottom: 5pt;
+            	text-align: left;
+            }
+            
+            h3 {
+            	font-family: Arial, Helvetica, sans-serif;
+            	font-size: 14pt;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 18pt;
+            	margin-bottom: 3pt;
+            	text-align: left;
+            }
+            
+            h4 
+            {
+            	font-family: Arial, Helvetica, sans-serif;
+            	font-size: 12pt;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 12pt;
+            	margin-bottom: 0pt;
+            	text-align: left;
+            }
+            
+            h5, h6, h7, h8
+            {
+            	font-family: Arial, Helvetica, sans-serif;
+            	font-size: 10pt;
+            	font-style: normal;
+            	font-weight: bold;
+            	color: black;
+            	margin-top: 10pt;
+            	margin-bottom: 0pt;
+            	text-align: left;
+            }
+            
+            pre {
+                background-color: #DCDCDC;
+                padding: 6pt 10pt 6pt 10pt;
+            }
+
+			table {
+				border-width: 0pt;
+				border-collapse: collapse;
+				font-size: 10pt;
+				margin-top: 10pt;
+				margin-bottom: 10pt;
+				padding: 3pt;
+			}
+			
+			th {
+				background-color: Silver;
+				font-weight: bold;
+				padding: 0 3pt 0 3pt;
+			}
+			
+			td {
+				padding: 0 3pt 0 3pt;
+			}
+			
+			.cellrowborderfirst {
+				border-left: none;
+				border-top: solid 1pt black;
+				border-right: none;
+				border-bottom: solid 1pt black;
+			}
+
+			.cellrowborder {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1pt black;
+			}
+			
+			.tablenoborder {
+				margin-top: 18pt;
+			}
+            
+			.cdxbg-peach {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #F9C69B;
+			}
+			
+			.cdxbg-lightpeach {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #FCE1C9;
+			}
+			
+			.cdxbg-aqua {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #B5D1CB;
+			}
+			
+			.cdxbg-lightaqua {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #D2E3E0;
+			}
+			
+			.cdxbg-tan {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #DBD6B3;
+			}
+			
+			.cdxbg-lighttan {
+				border-left: none;
+				border-top: none;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #EEEED1;
+			}
+			
+			.cdxbg-peachfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #F9C69B;
+			}
+			
+			.cdxbg-lightpeachfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #FCE1C9;
+			}
+			
+			.cdxbg-aquafirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #B5D1CB;
+			}
+			
+			.cdxbg-lightaquafirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #D2E3E0;
+			}
+			
+			.cdxbg-tanfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #DBD6B3;
+			}
+			
+			.cdxbg-lighttanfirst {
+				border-left: none;
+				border-top: solid 1px black;
+				border-right: none;
+				border-bottom: solid 1px black;
+				background-color: #EEEED1;
+			}
+			
+            p {
+            	margin-top: 10pt;
+            	margin-bottom: 10pt;
+            }
+            
+            td p, th p, li p {
+            	margin-top: 0pt;
+            	margin-bottom: 5pt;
+            }
+            
+            ol, ul {
+            	margin-top: 0pt;
+            	margin-bottom: 10ptm;
+            }
+            
+            li ol, li ul {
+            	margin-top: 0;
+            	margin-bottom: 0;
+            }
+            
+            .notetitle, .tiptitle, .importanttitle {
+            	font-weight: bold;
+            }
+            
+            .note, .tip, .important {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 10pt;
+            	margin-bottom: 10pt;
+            	padding: 5pt 8pt 5pt 8pt;
+            }
+
+            .cautiontitle, .warningtitle {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 10pt;
+            	margin-bottom: 0;
+            	padding: 5pt 8pt 5pt 8pt;
+            	font-weight: bold;
+            }
+            
+            .caution, .warning {
+            	background-color: #FFFFCC;
+            	color: #000000;
+            	margin-top: 0;
+            	margin-bottom: 10pt;
+            	padding: 5pt 8pt 5pt 8pt;
+            }
+            
+			.figcap, .caption, caption {
+				text-align: left;
+				font-style: normal;   
+				font-size: 10pt;
+            	margin-top: 10pt;
+				margin-bottom: 5pt;
+			}
+			
+			a:link {
+				color: #000099;
+				text-decoration: none;
+			}
+			
+			a:visited {
+				color: #800080;
+				text-decoration: none;
+			}
+			
+			a:active {
+				color: #000099;
+				text-decoration: none;
+			}
+			
+			a:hover {
+				color: #000099;
+				text-decoration: underline;
+			}
+			
+            .guilabel, .guicontrol {
+            	font-weight: bold;
+            }
+            
+			.guikey {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+			
+			.key {
+			  font-family: monospace;
+			  font-style: normal;
+			  font-weight: normal;
+			  text-transform: uppercase;
+			}
+			
+			.api-name, .cmd-name, .code, .file-path, 
+			.opt-name, .parm-name, .prop-name, 
+			.system-output, .msg-num, .msg-ph, .value {
+				font-family: monospace;
+			}
+			
+			.user-input {
+			  font-family: monospace; 
+			  font-weight: bold;
+			}
+			
+			.cite, .uservar {
+				font-style: italic;
+			}
+			
+			.win-name {
+			  font-weight: bold;
+			}
+			
+			.brokenlink {
+				font-style: italic;
+				color: #FF0000;
+			}
+
+            .pubdate 
+            {
+            	text-align: center;
+            }
+            
+            .gotop {
+         	    visibility: hidden;
+            }
+            
+            dt, .dlterm {
+            	font-weight: bold;
+            }
+            
+            .footer {
+            }
+            
+            .footer hr {
+            	width: 200pt;
+            	text-align: left;
+            }
+            
+            .maptoclist {
+            	list-style-type: none;
+            }
+                    
+            .codexwarn {
+            	color: #FF0000;
+            }
+            
+        </style><title>ClientVantage Agentless Monitoring 11.1  - Release Notes</title></head><body><a name="top"></a>
+<h1>ClientVantage Agentless Monitoring 11.1  - Release Notes</h1><h4 class="pubdate">October 16, 2009</h4><h4></h4><div class="maptoc"><ul class="maptoclist"><li><a href="#unique_1">1.&nbsp;Obtaining the Latest Release Notes</a></li><li><a href="#unique_2">2.&nbsp;System Requirements</a></li><li><a href="#unique_3">3.&nbsp;What's New</a></li><li><a href="#unique_4">4.&nbsp;Technical Notes</a></li><li><a href="#unique_5">5.&nbsp;Known Issues</a></li><li><a href="#unique_6">6.&nbsp;<span>Compuware</span>
+  Customer Support</a><ul class="maptoclist"><li><a href="#unique_7">6.1.&nbsp;Getting Help</a></li><li><a href="#unique_8">6.2.&nbsp;Customer Support and Online Information</a></li></ul></li></ul></div><div class="topiclevel1"><a name="unique_1"></a><h2 class="topictitle2">1.&nbsp;Obtaining the Latest Release Notes</h2>
+<div><p>If you have accessed this document from the product CD or from the
+	 program shortcuts on your desktop, you may not be viewing the latest release
+	 notes. For the most recent release information, go to
+	 <span>FrontLine</span>,
+	 <span>Compuware</span>'s
+	 technical support Web site. The first time you access
+	 <span>FrontLine</span>,
+	 you will be required to register and obtain a password. After logging on to
+	 <span>FrontLine</span>,
+	 select your product from the drop-down list and click <span class="guilabel">Go</span>.
+	 On the left-hand side of the page, click the <span class="guilabel">Documentation</span>
+	 link. You will find the latest release notes listed together with other product
+	 documentation. </p>
+</div>
+</div><div class="topiclevel1"><a name="unique_2"></a><div><span class="gotop"><a href="#top">back to top</a></span></div><h2 class="topictitle2">2.&nbsp;System Requirements</h2>
+<div><div class="section" id="unique_2__section-_A592DE00BD9540FDB3482E1C34EACD2B"><a name="unique_2__section-_A592DE00BD9540FDB3482E1C34EACD2B"></a><h3 class="sectiontitle">Recommended hardware and software platforms</h3><p>For specific details and model numbers on hardware configurations,
+		refer to the document <a href="http://frontline.compuware.com/products/a8/" target="_blank">Recommended Hardware and
+		Software Configurations</a> published on
+		<span>FrontLine</span>.
+		</p>
+<div class="note"><span class="notetitle">Note:</span>&nbsp;The Sun Crypto Accelerator 6000 board is supported only on Sun
+		  machines.</div>
+</div>
+<div class="section" id="unique_2__section-_73EA9ADF41DA47839703FD6CB1362B39"><a name="unique_2__section-_73EA9ADF41DA47839703FD6CB1362B39"></a><h3 class="sectiontitle"><span>ClientVantage
+		Agentless Monitoring</span> – recommended browsers and connectivity</h3><p>The following browsers are supported by ClientVantage Agentless
+		Monitoring report servers:</p>
+<a name="unique_2__ul-_D6205C6FDFA247DEA47A4388E8450232"></a><ul id="unique_2__ul-_D6205C6FDFA247DEA47A4388E8450232"><li id="unique_2__li-_D05CD9DCD809406CB3D0D576279E3D04"><a name="unique_2__li-_D05CD9DCD809406CB3D0D576279E3D04"></a><p>Microsoft Internet Explorer version 6.0 or later.</p>
+</li>
+<li id="unique_2__li-_72C239B2E522485A9736892AF16D95AA"><a name="unique_2__li-_72C239B2E522485A9736892AF16D95AA"></a><p>Mozilla Firefox version 1.5.0 or later, with JavaScript and
+			 cookie support enabled.</p>
+</li>
+<li id="unique_2__li-_402FF36107FA4284B6A75D91E6004C34"><a name="unique_2__li-_402FF36107FA4284B6A75D91E6004C34"></a><p>Other browsers with support for cookies, JavaScript, and CSS 2
+			 may also be used, but they are not recommended.</p>
+</li>
+</ul>
+<div class="note"><span class="notetitle">Note:</span>&nbsp;<p>Without JavaScript enabled, the top menu of the report server
+		  will not be visible and you will see the following message instead:
+		  <span class="system-output">This product uses JavaScript. Please make sure JavaScript is
+		  enabled in your browser settings.</span> </p>
+<p>To enable JavaScript in Microsoft Internet Explorer, select
+		  <span><span class="guicontrol">Tools</span> → <span class="guicontrol">Internet
+		  Options</span> → <span class="guicontrol">Security</span></span> from the top menu
+		  in your browser. Next, choose the <span class="guilabel">Custom level</span> button and
+		  enable the <span class="guilabel">Active Scripting</span> on the list of options.</p>
+<p>To enable JavaScript in Mozilla Firefox, select
+		  <span><span class="guicontrol">Tools</span> → <span class="guicontrol">Options</span> → <span class="guicontrol">Content</span></span>
+		  from the top menu in your browser, and select the <span class="guilabel">Enable
+		  JavaScript</span> check box.</p>
+</div>
+<p>Configuration screens require Web browsers with Java plugin version
+		1.5.0.9 or higher.</p>
+</div>
+<div class="section" id="unique_2__section-_FDA6C56D6DC949F5BD6CB6B60D6465A1"><a name="unique_2__section-_FDA6C56D6DC949F5BD6CB6B60D6465A1"></a><h3 class="sectiontitle"><span>ClientVantage
+		Agentless Monitoring</span> – recommended server systems</h3><p>The following server systems are officially recommended for the
+		<span>ClientVantage
+		Agentless Monitoring</span> suite:</p>
+<a name="unique_2__ul-_9F67B8B0F84F4DC285C313CB62E13A08"></a><ul id="unique_2__ul-_9F67B8B0F84F4DC285C313CB62E13A08"><li id="unique_2__li-_4C7D563CB5EC4101A553BDB2B4421ED0"><a name="unique_2__li-_4C7D563CB5EC4101A553BDB2B4421ED0"></a><p>Microsoft Windows Server 2003 (64-bit Edition) with latest
+			 release, service packs</p>
+</li>
+<li id="unique_2__li-_560F8310EB1849CE948C85F3504633D0"><a name="unique_2__li-_560F8310EB1849CE948C85F3504633D0"></a><p>Microsoft Windows Server 2008 (64-bit Edition) with latest
+			 release, service packs</p>
+</li>
+<li id="unique_2__li-_AD20949443454584B1F2DAB382C6AD28"><a name="unique_2__li-_AD20949443454584B1F2DAB382C6AD28"></a><p>Microsoft SQL 2005 Server (64-bit Edition)</p>
+</li>
+<li id="unique_2__li-_FDF55180DE3D42D98E74134B9941E3F8"><a name="unique_2__li-_FDF55180DE3D42D98E74134B9941E3F8"></a><p>Microsoft SQL 2008 Server (64-bit Edition)</p>
+</li>
+</ul>
+</div>
+</div>
+<div></div>
+</div><div class="topiclevel1"><a name="unique_3"></a><div><span class="gotop"><a href="#top">back to top</a></span></div><h2 class="topictitle2">3.&nbsp;What's New</h2>
+<div><div class="section" id="unique_3__section-_2816192383834EE7A9781810C4471DD7"><a name="unique_3__section-_2816192383834EE7A9781810C4471DD7"></a><h3 class="sectiontitle">
+		<span>Cisco Network Analysis Module</span> as measurement data source for
+		<span>Vantage
+		Analysis Server</span></h3><p>
+		<span>VAS</span>
+		<span>11.1</span>
+		can collect measurement data from multiple
+		<span>Cisco NAM</span>s, and
+		<span>NAM</span>
+		data can be supplemented with
+		<span>AMD</span>
+		measurements to extend application performance analysis into transaction and
+		user name context for critical applications on the network.</p>
+</div>
+<div class="section" id="unique_3__section-_D2F60380B18F4A5CBB94CEC542113F41"><a name="unique_3__section-_D2F60380B18F4A5CBB94CEC542113F41"></a><h3 class="sectiontitle"> End-user experience monitoring in SAP R/3 environment </h3><p> The SAP analyzer measures interactions of the SAP GUI clients with
+		the SAP servers using the passive agentless network monitoring technology and
+		network protocol analysis. All activity and user names are decoded from the
+		traffic exchanged between clients and servers. The current release supports
+		only Dialog-level analysis (not RFC-level analysis) for SAP GUI
+		monitoring.</p>
+<p>The end-to-end SAP infrastructure monitoring enables
+		<span>CVAM</span>
+		to provide a complete picture of SAP application end-user experience, and helps
+		to diagnose problems.</p>
+</div>
+<div class="section" id="unique_3__section-_30762EB0F90449A8AB841BBADA47F999"><a name="unique_3__section-_30762EB0F90449A8AB841BBADA47F999"></a><h3 class="sectiontitle"> User-level response monitoring for Web applications </h3><p> Content delivered to end users by modern, complex Web applications
+		is built by multiple tiers of the application infrastructure – a mesh of
+		application servers, Web services, messaging services, and databases. The only
+		place where all this content is put together and becomes visible is the end
+		user's browser.
+		<span>AMD</span>
+		analyzes and categorizes the messages returned by the Web application, enabling
+		<span>Vantage</span>
+		to diagnose which end-user actions cause specific responses or errors, and
+		reports precisely on messages that end users have seen on their screens. The
+		response analysis is expanded by support for custom transaction metrics, which
+		are calculated based on data requested by end users.</p>
+</div>
+<div class="section" id="unique_3__section-_83B3CB4DAB8345DE911BCDC15CBA6AB2"><a name="unique_3__section-_83B3CB4DAB8345DE911BCDC15CBA6AB2"></a><h3 class="sectiontitle"> Currency updates</h3><a name="unique_3__ul-_0DEFDB01B8E745BDAC84005E37AC33B3"></a><ul id="unique_3__ul-_0DEFDB01B8E745BDAC84005E37AC33B3"><li id="unique_3__li-_22EEEFEEDA0D4194820AE23CC9D81D92"><a name="unique_3__li-_22EEEFEEDA0D4194820AE23CC9D81D92"></a><p>HTTP analyzer: user recognition in Siteminder
+			 environment</p>
+</li>
+<li id="unique_3__li-_139F343CCBA047A69F047C184C308E4B"><a name="unique_3__li-_139F343CCBA047A69F047C184C308E4B"></a><p>Oracle Forms analyzer: user name tracking between Oracle server
+			 sockets</p>
+</li>
+<li id="unique_3__li-_15ABEBC2241544CFA16FCC73E4B7FDA4"><a name="unique_3__li-_15ABEBC2241544CFA16FCC73E4B7FDA4"></a><p> Duplicate packet resolution in presence of some network
+			 devices</p>
+</li>
+<li id="unique_3__li-_F7F291F4B65249FBA03CA685BA074E23"><a name="unique_3__li-_F7F291F4B65249FBA03CA685BA074E23"></a><p> Fixes to the Cross-Site Scripting vulnerability on
+			 <span>VAS</span></p>
+</li>
+</ul>
+</div>
+<div class="section" id="unique_3__section-_3CECF9D6A2D14368AE115424AF57D1E4"><a name="unique_3__section-_3CECF9D6A2D14368AE115424AF57D1E4"></a><h3 class="sectiontitle">Enhancement requests addressed in this release</h3>
+<div class="tablenoborder"><a name="unique_3__table_F726117B9C6245409C67B42EC8753720"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_3__table_F726117B9C6245409C67B42EC8753720" frame="border" border="1" rules="all"><tbody><tr><td class="cellrowborderfirst" valign="top" width="25.188916876574307%">
+					 <p>Eco-082407</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="41.56171284634761%">
+					 <p> MIB files should comply with SNMP v.2</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="33.249370277078086%">
+					 <p><span>VAS</span>
+						alerting</p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="unique_3__section-_F0B6D4D07BB04B3F9C0B59BC00F9F9D2"><a name="unique_3__section-_F0B6D4D07BB04B3F9C0B59BC00F9F9D2"></a></div>
+</div>
+</div><div class="topiclevel1"><a name="unique_4"></a><div><span class="gotop"><a href="#top">back to top</a></span></div><h2 class="topictitle2">4.&nbsp;Technical Notes</h2>
+<div><a name="unique_4__dl-_C02347CCB5CD40ED9589E2C65C15AA18"></a><dl id="unique_4__dl-_C02347CCB5CD40ED9589E2C65C15AA18"><dt class="dlterm"><a name="unique_4__dlentry-_D9CB2337E8614FFB9B44051FE373F845"></a>CryptoSwift Accelerator Support</dt>
+<dd><p>Starting with version
+			 <span>11.1</span>,
+			 <span>ClientVantage
+		Agentless Monitoring</span> does not support the CryptoSwift Accelerator
+			 Card. The migration procedure is described in the <span class="cite"><span>CVAM</span>
+			 – Migrating SSL Acceleration from Discontinued SafeNet
+			 CryptoSwift</span>technical paper published on
+			 <span>FrontLine</span>
+			 (<span><a href="http://frontline.compuware.com" target="_blank">http://frontline.compuware.com</a></span>).</p>
+</dd>
+<dt class="dlterm"><a name="unique_4__dlentry-_728A11AD7C1B4B6AB5E0E37284B0EBDD"></a>Support for
+		  <span>AMD</span>
+		  OS</dt>
+<dd><p>Primary
+			 <span>AMD</span>
+			 operating system is now Red Hat Enterprise Linux. Although
+			 <span>AMD</span>
+			 <span>11.1</span>
+			 works on both
+			 <span>AMD</span>
+			 OS 3.6 and RHEL, there are limitations in support of certain network cards on
+			 <span>AMD</span>
+			 OS. <span>AMD</span>
+			 release
+			 <span>11.1</span>
+			 is the last
+			 <span>AMD</span>
+			 release that supports
+			 <span>AMD</span>
+			 OS. Starting from next release after
+			 <span>11.1</span>
+			 RHEL will be the only supported
+			 <span>AMD</span>
+			 operating system.</p>
+</dd>
+<dt class="dlterm"><a name="unique_4__dlentry-_BBE036B98D254A4594B6BF932D4EA643"></a>Microsoft Internet Explorer performance</dt>
+<dd><p>Due to a different handling of the data within the HTML,
+			 Microsoft Internet Explorer may experience degradation in performance while
+			 viewing reports containing a large number of columns or reports containing a
+			 large number of tooltips.</p>
+</dd>
+<dt class="dlterm"><a name="unique_4__dlentry-_E6A8F62142DA4D66B7781C0388C91E88"></a>Discrepancies between
+		  <span>AWDS</span>
+		  and <span>VAS</span>.</dt>
+<dd><p> Starting with release
+			 <span>11.1</span>,
+			 the number of pages and hits reported by the HTTP decode may, in certain cases,
+			 be different from in previous releases. This difference will happen in cases
+			 when URL autolearning was enabled and certain number of non-HTML URLs were
+			 calculated based on their HTML referrer, which in fact was already counted when
+			 the HTML was first observed. The URL count may therefore be slightly
+			 exaggerated. </p>
+<p>You could configure a parameter to disable the URL learning
+			 option and eliminate the possibility of an inaccurate count, but starting with
+			 <span>Vantage</span>
+			 version release
+			 <span>11.1</span>
+			 this option is built in and there is no configuration necessary. As a result,
+			 the HTML referrer URL will be compared to learned URLs and matched URLs counted
+			 as one hit, making the URL hit count more precise.</p>
+</dd>
+<dt class="dlterm"><a name="unique_4__dlentry-_BBBAB0A3007D407FB1D181891C037A0A"></a>Expected Differences per analyzer between previous and current
+		  <span>ClientVantage
+		Agentless Monitoring</span> versions.</dt>
+<dd><p>HTTP analyzer compared to version
+			 <span>11.1</span>:</p>
+<a name="unique_4__ul-_CBE362B84DB94C10B6CF9A3EAECE4E7C"></a><ul id="unique_4__ul-_CBE362B84DB94C10B6CF9A3EAECE4E7C"><li id="unique_4__li-_619FD008238C418F83577EB694774A2A"><a name="unique_4__li-_619FD008238C418F83577EB694774A2A"></a><p>Application errors</p>
+<p>In previous releases of
+				  <span>CVAM</span>,
+				  for each URL / operation only one application error with the highest severity
+				  was taken into account.
+				  <span>CVAM</span>
+				  <span>11.1</span>
+				  reports <em> all</em> application responses that meet the defined pattern.
+				  </p>
+<p>Note that in
+				  <span>CVAM</span>
+				  <span>11.1</span>,
+				  the application error reporting mechanism has been substituted with an
+				  enhanced, universal solution: reporting on application responses.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div></div>
+</div><div class="topiclevel1"><a name="unique_5"></a><div><span class="gotop"><a href="#top">back to top</a></span></div><h2 class="topictitle2">5.&nbsp;Known Issues</h2>
+<div><div class="section" id="unique_5__section-_F51A011DF8F44E1FAF5A2DA5BCD66778"><a name="unique_5__section-_F51A011DF8F44E1FAF5A2DA5BCD66778"></a><h3 class="sectiontitle"><span>Vantage
+		Analysis Server</span></h3><p>This section describes known issues related to the current release
+		of <span>Vantage
+		Analysis Server</span> (<span>VAS</span>).
+		</p>
+
+<div class="tablenoborder"><a name="unique_5__table_F257BFAEE4C14D2CA23F7DECE0D6AD84"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_F257BFAEE4C14D2CA23F7DECE0D6AD84" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Defects</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e661">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e667">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e673">
+					 <p> Description</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-049326</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Sometimes values in tooltips are not visible.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p></p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-049363</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Memory is set up incorrectly when installing a second
+						server on the same machine.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-049389</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Unable to change the reporting interval when two
+						<span>VAS</span>
+						servers are attached to one
+						<span>AMD</span>.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-069678</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Host: default site should be described as
+						default.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p></p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-075742</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Incorrect total system memory value on the
+						<span class="guilabel">System status</span> report.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-080588</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>VoIP statistics are not presented on aggregation
+						server.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-081735</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Titles and legend for
+						<span>DMI</span>
+						charts are displayed incorrectly in case of using Japanese/Chinese
+						characters.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-081802</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Chinese/Japanese characters not displayed correctly
+						inside java applets.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-087262</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>The EUE console should support cluster failover
+						configuration.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p> Eco-090512</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Unexpected information on the <span class="guilabel">User
+						Activity</span> report. </p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-091515</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Some
+						<span>VAS</span>-<span>AWDS</span>
+						links will not work if
+						<span>VAS</span>
+						is configured with user option <span class="guicontrol">Track user IP
+						addresses</span>. </p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p> Eco-095934</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p><span>VAS</span>
+						sends licenses to the secondary
+						<span>AMD</span>
+						while the primary
+						<span>AMD</span>
+						becomes unavailable, which results in some data missing. </p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>01 00000 26266</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>Eco-096649</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>It is impossible to disable the
+						<span class="cmd-name">tempdb</span> task for
+						<span>VAS</span>/<span>AWDS</span>
+						from the EUE console.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p> DT 00000 12895 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Deduplication between
+						<span>Cisco NAM</span> and
+						<span>AMD</span>
+						does not work. </p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>DT 00000 12998 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>The
+						<span>VAS</span>
+						<span class="guilabel">Website Status</span> report and
+						<span>AWDS</span>
+						<span class="guilabel">Application Response Messages</span> report (opened as a
+						drill-down from VAS) have different application response counts.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e661 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e667 ">
+					 <p>DT 00000 17928 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e673 ">
+					 <p>Unlike other <span class="guilabel">EUE Status:
+						Transactions</span> reports, the report for SAP EUE transaction links to
+						the <span>AWDS</span>
+						<span class="guilabel">Operation Log</span> report instead of the
+						<span>AWDS</span>
+						<span class="guilabel">Transaction Log</span> report. </p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><a name="unique_5__table_B5E997FE680A4E289F28C87FED545028"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_B5E997FE680A4E289F28C87FED545028" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2. Workarounds</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1069">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1075">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1081">
+					 <p> Workaround</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1069 ">
+					 <p>01 00000 26266 </p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1075 ">
+					 <p> Eco-096649</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1081 ">
+					 <p> The tempdb task for
+						<span>VAS</span>/<span>AWDS</span>
+						from the EUE console can be commented out in the
+						<span class="file-path">tasks-100-hcbs.xml</span> file. </p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1069 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1075 ">
+					 <p> 00000 12895 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1081 ">
+					 <p> If
+						<span>AMD</span>
+						and
+						<span>Cisco NAM</span> monitor the same traffic and the same
+						<span>VAS</span>
+						receives data for software services from these devices, the mechanism for
+						deduplication built in to the report server will not work. </p>
+<p>Be aware that the workaround for such cases is still
+						experimental. This workaround has not yet been thoroughly tested.</p>
+<p>Use
+						<span class="prop-name">NAM_AMD_DEDUPLICATION_VALID_TIME</span>, which you can access
+						by typing <span class="code">http://<span class="uservar">VAS_ADDRESS</span>/userpropertiesadmin</span>
+						in your Web browser's address bar.</p>
+<p>This property sets the number of minutes for which the
+						server will retain a record of those software service sessions that have been
+						reported by
+						<span>AMD</span>
+						devices. During this time, matching sessions reported by
+						<span>Cisco NAM</span> devices will be marked as duplicate and discarded. </p>
+<p>It is recommended that you set this feature to three
+						times the size of the monitoring interval (in minutes).</p>
+<p>A value of zero disables the deduplication mechanism.
+						You must restart the server to put your changes into effect. </p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="unique_5__section-_1104805845D442908EF1C0529EA87995"><a name="unique_5__section-_1104805845D442908EF1C0529EA87995"></a><h3 class="sectiontitle"><span>Advanced Web Diagnostics Server</span></h3><p>This section describes known issues related to the current release
+		of <span>Advanced Web Diagnostics Server</span> (<span>AWDS</span>).
+		</p>
+
+<div class="tablenoborder"><a name="unique_5__table_8B7F53B2C7E44D66A8B7C9EE1ACE9F19"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_8B7F53B2C7E44D66A8B7C9EE1ACE9F19" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 3. Defects</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1190">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1196">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1202">
+					 <p>Description</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1190 ">
+					 <p>01 00000 26266 </p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1196 ">
+					 <p> Eco-096649</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1202 ">
+					 <p>It is impossible to disable the
+						<span class="cmd-name">tempdb</span> task for
+						<span>VAS</span>/<span>AWDS</span>
+						from the EUE console.</p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><a name="unique_5__table_883671E0F3FC48E6A4F1A8D427B2F8F7"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_883671E0F3FC48E6A4F1A8D427B2F8F7" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 4. Workarounds</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1246">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1252">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1258">
+					 <p> Workaround</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1246 ">
+					 <p>01 00000 26266 </p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1252 ">
+					 <p> Eco-096649</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1258 ">
+					 <p> The tempdb task for
+						<span>VAS</span>/<span>AWDS</span>
+						from the EUE console can be commented out in the
+						<span class="file-path">tasks-100-hcbs.xml</span> file. </p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="unique_5__section-_860AF212440149449708FA1650D35DAB"><a name="unique_5__section-_860AF212440149449708FA1650D35DAB"></a><h3 class="sectiontitle"><span>Agentless Monitoring Device</span></h3><p>This section describes known issues related to the current release
+		of <span>Agentless Monitoring Device</span>. </p>
+
+<div class="tablenoborder"><a name="unique_5__table_03259F5F3EB34497B7881127B6F369BE"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_03259F5F3EB34497B7881127B6F369BE" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 5. Defects</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1311">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1317">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1323">
+					 <p> Description</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p>Eco-092361</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p><span>AMD</span>
+						does not see some user names from cookie.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p>Eco-095404</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p><span>AMD</span>
+						does not support jumbo frames.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p> DT 00000 14492</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p>SAP GUI analyzer - A large amount of data not decoded
+						for one particular user IP.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p> DT 00000 12989</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p>SAP GUI analyzer - For some transactions, transaction
+						time reported as longer than actual. Some transaction names truncated.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p> &nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p> DT 00000 12772</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p>SAP GUI analyzer - Not all transactions
+						reported.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1311 ">
+					 <p> &nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1317 ">
+					 <p> DT 00000 12769</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1323 ">
+					 <p>SAP GUI analyzer - For one transaction, transaction
+						time reported as longer than actual.</p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="unique_5__section-_749119EC7E6A41378418B7FF299AAD69"><a name="unique_5__section-_749119EC7E6A41378418B7FF299AAD69"></a><h3 class="sectiontitle"><span>Vantage
+		Configuration for Agentless End-User Experience - Console</span></h3><p>This section describes known issues related to the current release
+		of
+		<span>VCAEUE Console</span>.</p>
+
+<div class="tablenoborder"><a name="unique_5__table_0F0291779BF24F96ACC6759F1B1AB153"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_0F0291779BF24F96ACC6759F1B1AB153" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 6. Defects</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1469">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1475">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1481">
+					 <p> Description</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1469 ">
+					 <p> </p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1475 ">
+					 <p> Eco-096585</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1481 ">
+					 <p>Installation hangs during upgrade.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1469 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1475 ">
+					 <p> Eco-096390</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1481 ">
+					 <p><span>VCAEUE</span>
+						uninstall does not work.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1469 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1475 ">
+					 <p>DT 00000 12961 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1481 ">
+					 <p><span>VCAEUE Console</span> crashes while opening a rule for a user-defined software
+						service.</p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><a name="unique_5__table_D1C49D91C5BB4487B57299991679C9E3"></a><table cellpadding="4" cellspacing="0" summary="" id="unique_5__table_D1C49D91C5BB4487B57299991679C9E3" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 7. Workarounds</span></caption><thead align="left"><tr><th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1558">
+					 <p>Associated Calls</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1564">
+					 <p> Defect Number</p>
+
+				  </th>
+<th class="cellrowborderfirst" valign="top" width="NaN%" id="d28e1570">
+					 <p> Workaround</p>
+
+				  </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1558 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1564 ">
+					 <p> Eco-096390</p>
+
+				  </td>
+<td class="cellrowborderfirst" valign="top" width="NaN%" headers="d28e1570 ">
+					 <p>Because of an InstallAnywhere issue, the VCAEUE
+						uninstall program may only delete the UninstallerData directory, without
+						uninstalling VCAEUE. To correct this problem under the Windows operating
+						systems, delete the hidden file <span class="file-path">C:\Program Files\Zero G
+						Registry\.com.zerog.registry.xml</span>. After you delete the file, the
+						uninstaller should run successfully.</p>
+
+				  </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d28e1558 ">
+					 <p>&nbsp;</p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1564 ">
+					 <p>DT 00000 12961 </p>
+
+				  </td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d28e1570 ">
+					 <p>
+						<span>VCAEUE Console</span> application might crash with a <span class="system-output">No More
+						Handles</span> error if the user has about 30 to 40 other applications
+						open at the same time.</p>
+<p>This problem occurs mainly on a Windows XP system that
+						has an NT User Handles limit (<a href="http://support.microsoft.com/kb/327699" target="_blank">http://support.microsoft.com/kb/327699</a>).
+						As a result, applications that require many NT User handles may occasionally
+						stop working or crash.</p>
+<p>It is recommended not to use or open a large number of
+						applications at the same time when
+						<span>VCAEUE Console</span> is running.</p>
+<p>If you experience a <span class="system-output">No More
+						Handles</span> error, close all running programs on your machine and
+						restart
+						<span>VCAEUE Console</span>.</p>
+
+				  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="unique_5__section-_3C6F8690B1ED4CD5943FFA99924049D4"><a name="unique_5__section-_3C6F8690B1ED4CD5943FFA99924049D4"></a><h3 class="sectiontitle">Other issues</h3><p>There are no other known issues in the current
+		<span>CVAM</span>
+		release.</p>
+</div>
+</div>
+</div><div class="topiclevel1"><a name="unique_6"></a><div><span class="gotop"><a href="#top">back to top</a></span></div><h2 class="topictitle2">6.&nbsp;<span>Compuware</span>
+  Customer Support</h2>
+<div></div>
+<div></div>
+</div><div class="topiclevel2"><a name="unique_7"></a><h3 class="topictitle3">6.1.&nbsp;Getting Help</h3>
+<div><div class="section" id="unique_7__section-_4A52C1DE77C541B9B407215CAB725339"><a name="unique_7__section-_4A52C1DE77C541B9B407215CAB725339"></a><p>When calling, please provide Customer Support with as much
+		information as possible about your environment and the circumstances that led
+		to the difficulty. You should be ready to provide:</p>
+<a name="unique_7__ul-_09BAE7787DBA47BDA4F5987A4E655F9F"></a><ul id="unique_7__ul-_09BAE7787DBA47BDA4F5987A4E655F9F"><li id="unique_7__li-_5B7863B2E7A44708B11B9BACA88D4ECD"><a name="unique_7__li-_5B7863B2E7A44708B11B9BACA88D4ECD"></a><p>Client number: this number is assigned to you by
+			 <span>Compuware</span>
+			 and is recorded on your sales contract.</p>
+</li>
+<li id="unique_7__li-_E16A100F54E04D72AB66BEE734A96103"><a name="unique_7__li-_E16A100F54E04D72AB66BEE734A96103"></a><p>The version number of the
+			 <span id="unique_7__ph-_9A5A26FA19F34A439D394668454D16F3"><a name="unique_7__ph-_9A5A26FA19F34A439D394668454D16F3"></a><span>Agentless Monitoring Device</span> (<span>AMD</span>)
+			 and the</span> report servers.</p>
+<a name="unique_7__dl-_0DA921E1306940DEAFB26E002267231C"></a><dl id="unique_7__dl-_0DA921E1306940DEAFB26E002267231C"><dt class="dlterm"><a name="unique_7__dlentry-_AF40DAB36D64478CBB1576D7C5A29C56"></a>For the report server </dt>
+<dd><p>Use the report server GUI by selecting
+					 <span><span class="guicontrol">Help</span> → <span class="guicontrol">Product
+					 Information</span> → <span class="guicontrol">About</span></span>, or
+					 <span><span class="guicontrol">Tools</span> → <span class="guicontrol">Diagnostics</span> → <span class="guicontrol">System
+					 Status</span></span>. </p>
+</dd>
+<dt class="dlterm"><a name="unique_7__dlentry-_88DFB01826E8469CA938722571726912"></a>For the
+				  <span>AMD</span></dt>
+<dd><p>Scroll down to the <span class="guilabel">Testing AMD</span>
+					 section. At the bottom of the diagnostic data paragraph, look for
+					 <span class="msg-ph">“Version ND-RTM v.ndw.<span class="uservar">x.yy.zz</span>”</span>.</p>
+</dd>
+</dl>
+</li>
+<li id="unique_7__li-_60AB8399176440D1BADB6A43A1D05918"><a name="unique_7__li-_60AB8399176440D1BADB6A43A1D05918"></a><p>Environment information, such as the operating system and
+			 release (including service pack level) on which the product (<span>AMD</span>,
+			 report server) is installed, memory, hardware/network specifications, and the
+			 names and releases of other applications that were running.</p>
+<p>Problem description, including screenshots.</p>
+</li>
+<li id="unique_7__li-_17145079678246B0A133D1C24273756F"><a name="unique_7__li-_17145079678246B0A133D1C24273756F"></a><p>Exact error messages, if any (screenshots recommended).</p>
+</li>
+<li id="unique_7__li-_FA95F418069649C192FBBC3111E7BE64"><a name="unique_7__li-_FA95F418069649C192FBBC3111E7BE64"></a><p>Whether or not the problem is reproducible. If yes, include a
+			 sequence of steps for problem recreation. If not, include a description of the
+			 actions taken before the problem occurred.</p>
+</li>
+<li id="unique_7__li-_204C8B7C09EA4BAD8750BD335C37E68B"><a name="unique_7__li-_204C8B7C09EA4BAD8750BD335C37E68B"></a><p>A description of the actions that may have been taken to
+			 recover from the difficulty and their results.</p>
+</li>
+<li id="unique_7__li-_CB056C5F95D94DE399A8B68A75C1775E"><a name="unique_7__li-_CB056C5F95D94DE399A8B68A75C1775E"></a><p>Debug information as follows:</p>
+<a name="unique_7__dl-_DD009399BA13400DB1D3E158A58510F4"></a><dl id="unique_7__dl-_DD009399BA13400DB1D3E158A58510F4"><dt class="dlterm"><a name="unique_7__dlentry-_11AE68177B2D4382B8AE549AB56B9304"></a>Information from the report server</dt>
+<dd><a name="unique_7__ul-_E75AC6042BED4753B83403F76204C4F5"></a><ul id="unique_7__ul-_E75AC6042BED4753B83403F76204C4F5"><li id="unique_7__li-_1AE5EA4113E94A698E7ACC4B068A4567"><a name="unique_7__li-_1AE5EA4113E94A698E7ACC4B068A4567"></a><p>Log files from
+						  <span class="code">http://<span class="uservar">report_server_IP</span>/root/log/</span>
+									
+						  and <span class="file-path">watchdog.log</span> from the
+						  <span class="file-path">C:\Program Files\Common Files\Compuware\Watchdog</span>
+						  directory.</p>
+</li>
+<li id="unique_7__li-_9D4724273FA24FA281F7BFF9BEE99E55"><a name="unique_7__li-_9D4724273FA24FA281F7BFF9BEE99E55"></a><p>Configuration file:
+						  <span class="code">http://<span class="uservar">report_server_IP</span>/ExportConfig</span> </p>
+</li>
+<li id="unique_7__li-_F34F9AF466784C5FB428EB2A1D970E3A"><a name="unique_7__li-_F34F9AF466784C5FB428EB2A1D970E3A"></a><p>Screenshots of the problem. </p>
+</li>
+</ul>
+</dd>
+<dt class="dlterm"><a name="unique_7__dlentry-_B61F8D15177B40A787E5177F1DFFAB85"></a>Information from the
+				  <span>AMD</span></dt>
+<dd><p>Log files from <span class="file-path">/var/log/adlex/</span>:
+					 <span class="code">rtm.log</span>, <span class="code">rtm.log.1</span>, <span class="code">rtm_perf.log</span>,
+					 <span class="code">rtm_perf.log.1</span>. </p>
+</dd>
+<dt class="dlterm"><a name="unique_7__dlentry-_F8828D57C1BE485F8E70BB23D746E213"></a>Information from the
+				  <span>VCAEUE Server</span></dt>
+<dd><a name="unique_7__ul-_C48C1BB26C7C4E5AAC5EA87494CF0190"></a><ul id="unique_7__ul-_C48C1BB26C7C4E5AAC5EA87494CF0190"><li id="unique_7__li-_5C8F1288829B4B2BADE3BC03A6CBF425"><a name="unique_7__li-_5C8F1288829B4B2BADE3BC03A6CBF425"></a><p>Log files from <span class="file-path">..\Program
+						  Files\Compuware\</span></p>
+<p><span class="file-path">Vantage_Configuration_For_Agentless_EUE\cva\log</span>
+						  directory.</p>
+</li>
+<li id="unique_7__li-_D3CB0E9D2C61425E9FD0116C2E250626"><a name="unique_7__li-_D3CB0E9D2C61425E9FD0116C2E250626"></a><p>All files from <span class="file-path">..\Program
+						  Files\Compuware\</span></p>
+<p><span class="file-path">Vantage_Configuration_For_Agentless_EUE\platform3.0\InstallLogs</span></p>
+</li>
+<li id="unique_7__li-_D9A43630D73347EBB187F02B1C1F9D82"><a name="unique_7__li-_D9A43630D73347EBB187F02B1C1F9D82"></a><p>All <span class="file-path">*.log</span> files from
+						  <span class="file-path">..\Documents and Settings\All Users\Application
+						  Data\Compuware\<span class="uservar">&lt;Service
+						  Name&gt;</span>\workspace\log\kernel</span> where <span class="uservar">&lt;Service
+						  Name&gt;</span> is Microsoft Windows Service Name associated with
+						  <span>VCAEUE Server</span>. By default it is <span class="api-name">Agentless Platform
+						  1</span></p>
+</li>
+<li id="unique_7__li-_C57FEFE4F6874194A94CEE4F2B981937"><a name="unique_7__li-_C57FEFE4F6874194A94CEE4F2B981937"></a><p>Version file (<span class="file-path">version.xml</span>)
+						  located in <span class="file-path">..\Program
+						  Files\Compuware\Vantage_Configuration_For_Agentless_EUE\</span></p>
+</li>
+<li id="unique_7__li-_63D46E0F8FEE4DAF8122313D0F3F4CFD"><a name="unique_7__li-_63D46E0F8FEE4DAF8122313D0F3F4CFD"></a><p>Version file (<span class="file-path">version.xml</span>)
+						  located in <span class="file-path">..\Program Files\Compuware\</span></p>
+<p><span class="file-path">Vantage_Configuration_For_Agentless_EUE\cva\eclipse</span></p>
+</li>
+</ul>
+</dd>
+<dt class="dlterm"><a name="unique_7__dlentry-_276B1AF6F5CA4ECDADE91863343468D1"></a>Information from the
+				  <span>VCAEUE Console</span></dt>
+<dd><p>The installation log file:</p>
+<p><span class="file-path">Vantage_Configuration_for_Agentless_End-User_Experience_<span>11.1</span>_InstallLog.log</span>
+					 </p>
+<p>location:</p>
+<p><span class="file-path">..\Program
+					 Files\Compuware\Vantage_Configuration_For_Agentless_EUE</span></p>
+<p>log files located in the following directory of your
+					 <span>VCAEUE Console</span> installation:</p>
+<p><span class="file-path">..\Program
+					 Files\Compuware\Vantage_Configuration_For_Agentless_EUE\eclipse\log</span>
+					 </p>
+<p>and version file (<span class="file-path">version.xml</span>)
+					 located in <span class="file-path">..\Program
+					 Files\Compuware\Vantage_Configuration_For_Agentless_EUE\</span> and in
+					 <span class="file-path">..\Program
+					 Files\Compuware\Vantage_Configuration_For_Agentless_EUE\cva\eclipse</span>.</p>
+<p></p>
+</dd>
+</dl>
+<div class="note"><span class="notetitle">Note:</span>&nbsp;Please compress all the files before sending them to Customer
+				Support.</div>
+</li>
+</ul>
+<p><span>Compuware</span>
+		values your comments and suggestions about the
+		<span>Vantage</span>
+		products and documentation. Your feedback is very important to us. If you have
+		questions or suggestions for improvement, please let us know.</p>
+</div>
+</div>
+<div>
+<div class="familylinks">
+<div class="parentlink"></div>
+</div>
+</div>
+</div><div class="topiclevel2"><a name="unique_8"></a><h3 class="topictitle3">6.2.&nbsp;Customer Support and Online Information</h3>
+<div><div class="section" id="unique_8__corp_website"><a name="unique_8__corp_website"></a><h4 class="sectiontitle">Corporate Web site</h4><p>To access
+		<span>Compuware</span>'s
+		site on the Web, go to
+		<a href="http://www.compuware.com" target="_blank">http://www.compuware.com</a>. The
+		<span>Compuware</span>
+		site provides a variety of product and support information. </p>
+</div>
+<div class="section" id="unique_8__frontline_website"><a name="unique_8__frontline_website"></a><h4 class="sectiontitle"><span>FrontLine</span>
+		support Web site</h4><p>You can access online customer support for
+		<span>Compuware</span>
+		products via our
+		<span>FrontLine</span>
+		support site at
+		<span><a href="http://frontline.compuware.com" target="_blank">http://frontline.compuware.com</a></span>.
+		<span>FrontLine</span>
+		provides fast access to critical information about your
+		<span>Compuware</span>
+		products. You can read or download documentation, frequently asked questions,
+		and product fixes, or e-mail your questions or comments. The first time you
+		access
+		<span>FrontLine</span>,
+		you are required to register and obtain a password. Registration is
+		free.</p>
+</div>
+<div class="section" id="unique_8__section-_27FB90E59E754DAD8CD57C9D919367B0"><a name="unique_8__section-_27FB90E59E754DAD8CD57C9D919367B0"></a><h4 class="sectiontitle">Customer Support</h4><p>You can contact
+		<span>Compuware</span>
+		Customer Support as follows:</p>
+<a name="unique_8__ul-_E2EC6F3CDE594EF096A881A5DCBC06C9"></a><ul id="unique_8__ul-_E2EC6F3CDE594EF096A881A5DCBC06C9"><li id="unique_8__li-_DBD0FEA80FA74B1DABF749312EA3FE07"><a name="unique_8__li-_DBD0FEA80FA74B1DABF749312EA3FE07"></a><p>Web: via the <span class="q">“<span>FrontLine</span>
+			 Incident Reporting Form”</span>.</p>
+</li>
+<li id="unique_8__li-_073A75AB2CAD4C66B9527397816AC199"><a name="unique_8__li-_073A75AB2CAD4C66B9527397816AC199"></a><p>By phone:
+			 <span>Compuware</span>
+			 Customer Support.</p>
+<a name="unique_8__ul-_1D4FF97D23E94A938D613F99C2D62226"></a><ul id="unique_8__ul-_1D4FF97D23E94A938D613F99C2D62226"><li id="unique_8__li-_A492FB26474F4ED083EDC96CC0987511"><a name="unique_8__li-_A492FB26474F4ED083EDC96CC0987511"></a><p>USA and Canada customers: 1-800-538-7822 or
+				  1-313-227-5444.</p>
+</li>
+<li id="unique_8__li-_FF29F87EFC4F4E74AA395E30DE392E1F"><a name="unique_8__li-_FF29F87EFC4F4E74AA395E30DE392E1F"></a><p>All other countries: please contact your local
+				  <span>Compuware</span>
+				  office.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>All high-priority issues should be reported by phone.</p>
+</div>
+</div>
+<div>
+<div class="familylinks">
+<div class="parentlink"></div>
+</div>
+</div>
+</div>
+<div class="footer"><hr><p>End of&nbsp;ClientVantage Agentless Monitoring 11.1  - Release Notes<br>©&nbsp;2009&nbsp;Compuware Corporation. All rights reserved. Unpublished rights reserved under the Copyright Laws of the United States.</p></div></body>
+</html>

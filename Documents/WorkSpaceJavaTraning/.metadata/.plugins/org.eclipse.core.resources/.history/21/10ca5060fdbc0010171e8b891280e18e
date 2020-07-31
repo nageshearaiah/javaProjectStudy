@@ -1,0 +1,24 @@
+package LabSession;
+
+public class TestEmployee {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Employee emp = new Employee(1234 , "aditya","btmlaout","27/12/1987","23/08/2010");
+             emp.DisplayEmp();
+             
+             emp.changeAddress("girinagar'");
+             
+             Wagers Wag = new Wagers(30,750);
+             Wag.DisplayEmp();
+             Wag.DisplayWagers();
+             Salaried Sal = new Salaried(10000, 5000,3300,555);
+             Sal.DisplayEmp();
+             Sal.DisplaySalaried();
+             
+             
+	}
+
+}

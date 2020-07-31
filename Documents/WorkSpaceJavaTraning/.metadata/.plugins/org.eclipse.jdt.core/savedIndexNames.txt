@@ -1,0 +1,14 @@
+INDEX VERSION 1.125+C:\Qwest_Projects\JAVA\WorkSpaceJavaTraning\.metadata\.plugins\org.eclipse.jdt.core
+4223500952.index
+1163343223.index
+3061148521.index
+748563726.index
+2108001594.index
+3599651770.index
+1458247779.index
+1016869197.index
+1695535350.index
+581499166.index
+3120836041.index
+3161400835.index
+2623662819.index
